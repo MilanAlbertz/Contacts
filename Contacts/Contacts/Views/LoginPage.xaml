@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Contacts.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             xmlns:controls="clr-namespace:XamarinSamples.Views.Controls;assembly=XamarinSamples"
+             x:Name="this">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Padding="5,50,5,50" BackgroundColor="#5E17EB">
+                <Image Source="contacts_logo.png"></Image>
+                <Label 
+                    FontAttributes="Bold" 
+                    Padding="0,20,0,0" 
+                    FontSize="30" 
+                    HorizontalOptions="Center" 
+                    TextColor="White">
+                    Welcome back
+                </Label>
+                
+                <Label
+                    Padding="0,0,0,0"
+                    FontSize="15" 
+                    HorizontalOptions="Center" 
+                    TextColor="White">
+                    Sign in to continue
+                </Label>
+            </StackLayout>
+            <Frame BorderColor="#5E17EB" Padding="1" Margin="20,50,20,0">
+                <Entry 
+                x:Name="UsernameEntry"
+                Placeholder="Username" 
+                TextColor="Black" 
+                PlaceholderColor="Gray">
+                </Entry>
+            </Frame>
+            
+            <Frame BorderColor="#5E17EB" Padding="1" Margin="20,0,20,0">
+                <Entry 
+                x:Name="PasswordEntry"
+                Placeholder="Password" 
+                TextColor="Black" 
+                PlaceholderColor="Gray" 
+                IsPassword="True">
+                </Entry>
+            </Frame>
+
+            <Button
+                Margin="20,10,20,0"
+                VerticalOptions="Center"
+                Text="Login"
+                TextColor="White"
+                BackgroundColor="#5E17EB"
+                CornerRadius="50"
+                Clicked="LoginButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
