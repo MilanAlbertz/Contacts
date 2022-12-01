@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.Android", "Contact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts.iOS", "Contacts\Contacts.iOS\Contacts.iOS.csproj", "{D77E7918-FA66-404B-BC00-BFB5CCA6D42D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "Contacts\Contacts\Contacts.csproj", "{C7CB419B-450E-4B6A-A423-5EE480D4A57A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contacts", "Contacts\Contacts\Contacts.csproj", "{C7CB419B-450E-4B6A-A423-5EE480D4A57A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,6 @@
              mc:Ignorable="d"
              x:Class="Contacts.Views.LoginPage"
              Shell.NavBarIsVisible="False"
-             xmlns:controls="clr-namespace:XamarinSamples.Views.Controls;assembly=XamarinSamples"
              x:Name="this">
     <ContentPage.Content>
         <StackLayout>

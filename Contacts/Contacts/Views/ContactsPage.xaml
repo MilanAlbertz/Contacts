@@ -3,10 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.ContactsPage"
              Title="Contacts">
-    
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!" TextColor="black"/>
+            <StackLayout>
+
+            </StackLayout>
+            <Button
+                Margin="20,10,20,0"
+                VerticalOptions="Center"
+                Text="Login"
+                TextColor="White"
+                BackgroundColor="#5E17EB"
+                CornerRadius="50"
+                Clicked="ContactsButton_ClickedAsync"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
