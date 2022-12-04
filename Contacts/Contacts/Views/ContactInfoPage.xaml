@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Contacts.Views.ProfilePage">
+             x:Class="Contacts.Views.ContactInfoPage"
+             Title="Contacts">
+
     <ContentPage.Content>
         <StackLayout>
-            <Entry Text="Test Contact" IsReadOnly="True" TextColor="Black" HorizontalOptions="Center" FontSize="30" />
+            <Label x:Name="IdLabel" IsVisible="False"></Label>
+            <Entry x:Name="NameEntry" IsReadOnly="True" TextColor="Black" HorizontalOptions="Center" FontSize="30" />
             <Frame  HeightRequest="100" Padding="0" HorizontalOptions="Center" HasShadow="True" BackgroundColor="Accent" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
                 <Image WidthRequest="100" Source="TestContact.jpeg" HorizontalOptions="Center"/>
             </Frame>
 
             <StackLayout Padding="20,0,0,0">
                 <Label TextColor="Black">Achternaam:</Label>
-                <Entry Text="Test" IsReadOnly="True" TextColor="Black" />
+                <Entry x:Name="SurnameEntry" IsReadOnly="True" TextColor="Black" />
                 <Label TextColor="Black">Email:</Label>
-                <Entry Text="test.test@gmail.com" IsReadOnly="True" TextColor="Black" />
+                <Entry x:Name="EmailEntry" IsReadOnly="True" TextColor="Black" />
                 <Entry TextColor="Black" x:Name="PhoneNumbersEntry" IsReadOnly="True" />
             </StackLayout>
         </StackLayout>

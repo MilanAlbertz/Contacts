@@ -12,6 +12,7 @@ namespace Contacts.Models
         public List<Contact> LocalContacts { get; private set; }       
         public async Task GetAllContactsAsync()
         {
+            var getPermission = await Xamarin.Essentials.Contacts.PickContactAsync();
             var contacts = await Xamarin.Essentials.Contacts.GetAllAsync();
 
             if (LocalContacts == null)
@@ -32,7 +33,9 @@ namespace Contacts.Models
                 }
                 LocalContacts.Add(localContact);
             }
-            var test = LocalContacts;
+            /*Place Breakpoint here to see all your local contacts. Will be used later to check
+            localcontacts with database to see if people in your contacts use the app.*/ 
+            var check = LocalContacts;
         }
     }
 }

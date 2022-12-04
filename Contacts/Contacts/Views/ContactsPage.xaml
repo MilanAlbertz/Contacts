@@ -6,9 +6,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout>
-
-            </StackLayout>
+            <Label TextColor="Black" HorizontalOptions="Center" FontSize="20">Wajow</Label>
             <Button
                 Margin="20,10,20,0"
                 VerticalOptions="Center"
@@ -17,6 +15,20 @@
                 BackgroundColor="#5E17EB"
                 CornerRadius="50"
                 Clicked="ContactsButton_ClickedAsync"/>
+            <StackLayout>
+                <ListView x:Name="QuestionListView" ItemSelected="QuestionListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" TextColor="Black">
+                                
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
