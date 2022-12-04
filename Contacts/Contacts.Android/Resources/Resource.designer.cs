@@ -16534,12 +16534,6 @@ namespace Contacts.Droid
 			// aapt resource value: 0x7F070064
 			public const int design_snackbar_background = 2131165284;
 			
-			// aapt resource value: 0x7F07006C
-			public const int icon_about = 2131165292;
-			
-			// aapt resource value: 0x7F07006D
-			public const int icon_feed = 2131165293;
-			
 			// aapt resource value: 0x7F070065
 			public const int ic_arrow_down_24dp = 2131165285;
 			
@@ -16561,35 +16555,41 @@ namespace Contacts.Droid
 			// aapt resource value: 0x7F07006B
 			public const int ic_mtrl_chip_close_circle = 2131165291;
 			
+			// aapt resource value: 0x7F07006C
+			public const int Logout = 2131165292;
+			
+			// aapt resource value: 0x7F07006D
+			public const int material_cursor_drawable = 2131165293;
+			
 			// aapt resource value: 0x7F07006E
-			public const int material_cursor_drawable = 2131165294;
+			public const int material_ic_calendar_black_24dp = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int material_ic_calendar_black_24dp = 2131165295;
+			public const int material_ic_clear_black_24dp = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int material_ic_clear_black_24dp = 2131165296;
+			public const int material_ic_edit_black_24dp = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int material_ic_edit_black_24dp = 2131165297;
+			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165298;
+			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165299;
+			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165300;
+			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165301;
+			public const int material_ic_menu_arrow_down_black_24dp = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int material_ic_menu_arrow_down_black_24dp = 2131165302;
+			public const int material_ic_menu_arrow_up_black_24dp = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int material_ic_menu_arrow_up_black_24dp = 2131165303;
+			public const int Menu = 2131165303;
 			
 			// aapt resource value: 0x7F070078
 			public const int mtrl_dialog_background = 2131165304;
@@ -16663,20 +16663,23 @@ namespace Contacts.Droid
 			// aapt resource value: 0x7F07008F
 			public const int preference_list_divider_material = 2131165327;
 			
-			// aapt resource value: 0x7F070091
-			public const int TestContact = 2131165329;
-			
 			// aapt resource value: 0x7F070090
-			public const int test_custom_background = 2131165328;
+			public const int Privacy_Policy = 2131165328;
 			
 			// aapt resource value: 0x7F070092
-			public const int tooltip_frame_dark = 2131165330;
+			public const int TestContact = 2131165330;
+			
+			// aapt resource value: 0x7F070091
+			public const int test_custom_background = 2131165329;
 			
 			// aapt resource value: 0x7F070093
-			public const int tooltip_frame_light = 2131165331;
+			public const int tooltip_frame_dark = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int xamarin_logo = 2131165332;
+			public const int tooltip_frame_light = 2131165332;
+			
+			// aapt resource value: 0x7F070095
+			public const int xamarin_logo = 2131165333;
 			
 			static Drawable()
 			{

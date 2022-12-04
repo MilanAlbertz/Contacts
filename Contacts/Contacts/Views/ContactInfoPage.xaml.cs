@@ -21,6 +21,7 @@ namespace Contacts.Views
             IdLabel.Text = selectedContact.Id.ToString();
             NameEntry.Text = selectedContact.Name;
             SurnameEntry.Text = selectedContact.Surname;
+            //EmailEntry.Text = 
             //PhoneNumbersEntry.Text = 
         }
     }
