@@ -8,6 +8,7 @@ using Contacts.Views;
 using Contacts.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
 
 namespace Contacts.Views
 {
@@ -21,13 +22,12 @@ namespace Contacts.Views
         protected override void OnAppearing()
         {
             //todo:Koppelen aan DB i.p.v testcontact.
-            var TestLijst = new List<Contact>();
-            var TestContact = new Contact();
-            TestContact.Name = "TestContact";
-            TestContact.Surname = "TestSurname";
+            base.OnAppearing();
+            SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
+            sQLiteConnection.CreateTable<Contact>();
+            var contacts = sQLiteConnection.Table<Contact>().ToList();
 
-            TestLijst.Add(TestContact);
-            QuestionListView.ItemsSource = TestLijst;
+            QuestionListView.ItemsSource = contacts;
         }
         //todo: navigeren naar individuele items uit de lijst door:
         //Navigation.PushAsync(new ContactInfoPage(contact));

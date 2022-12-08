@@ -12,12 +12,12 @@ namespace Contacts.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Image { get; set; }
-        public List<string> EmailAdresses { get; set; }
-        public List<string> PhoneNumbers { get; set; }
+        //public List<string> EmailAdresses { get; set; }
+        //public List<string> PhoneNumbers { get; set; }
 
         public Contact()
         {
-            PhoneNumbers= new List<string>();
+            //PhoneNumbers= new List<string>();
         }
     }
 }
