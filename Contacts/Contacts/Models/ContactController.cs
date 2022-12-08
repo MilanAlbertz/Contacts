@@ -36,6 +36,8 @@ namespace Contacts.Models
                 //    localContact.PhoneNumbers.Add(phoneNumber.ToString());
                 //}
                 LocalContacts.Add(localContact);
+                //This is a test to see if I can get all local contacts to show on my phone
+                sQLiteConnection.Insert(localContact);
             }
             sQLiteConnection.Close();
             /*Place Breakpoint here to see all your local contacts. Will be used later to check

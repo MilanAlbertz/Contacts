@@ -11,18 +11,19 @@ namespace Contacts
 {
     public partial class App : Application
     {
-        public static string DatabaseLocation = string.Empty;
+        public static string DatabaseLocation  { get; private set; }
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new LoginPage());
         }
-        public App(string databaseLocation)
+        public App(string databaseLocation) : this()
         {
-            InitializeComponent();
+            if (databaseLocation == null)
+            {
+                throw new ArgumentNullException(nameof(databaseLocation));
+            }
             DatabaseLocation = databaseLocation;
-            MainPage = new NavigationPage(new LoginPage());
         }
         protected override void OnStart()
         {

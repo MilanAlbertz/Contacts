@@ -5,8 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Contacts.Views.LoginPage"
-             Shell.NavBarIsVisible="False"
-             x:Name="this">
+             NavigationPage.HasNavigationBar="False"
+             x:Name="this"
+             BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="5,50,5,50" BackgroundColor="#5E17EB">

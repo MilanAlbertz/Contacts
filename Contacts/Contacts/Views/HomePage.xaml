@@ -4,6 +4,7 @@
             x:Class="Contacts.Views.HomePage"
             BarBackgroundColor="#5E17EB">
 
+
     <local:ContactsPage Title="Contacts"/>
     <local:MapPage Title="Map"/>
     <local:ProfilePage Title="Profile"/>

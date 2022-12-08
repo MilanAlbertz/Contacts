@@ -21,7 +21,6 @@ namespace Contacts.Views
         }
         protected override void OnAppearing()
         {
-            //todo:Koppelen aan DB i.p.v testcontact.
             base.OnAppearing();
             SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
             sQLiteConnection.CreateTable<Contact>();
