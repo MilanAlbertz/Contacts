@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using SQLite;
+using Newtonsoft.Json;
 
 namespace Contacts.Models
 {
@@ -31,18 +32,27 @@ namespace Contacts.Models
                 var localContact = new Contact();
                 localContact.Name = contact.GivenName;
                 localContact.Surname = contact.FamilyName;
-                //foreach (var phoneNumber in contact.Phones)
-                //{
-                //    localContact.PhoneNumbers.Add(phoneNumber.ToString());
-                //}
+                foreach (var phoneNumber in contact.Phones)
+                {
+                    localContact.PhoneNumbers.Add(phoneNumber.ToString());
+                }
+                localContact.PhoneNumbersBlobbed = JsonConvert.SerializeObject(localContact.PhoneNumbers);
+                localContact.EmailAdressesBlobbed = JsonConvert.SerializeObject(localContact.EmailAdresses);
                 LocalContacts.Add(localContact);
-                //This is a test to see if I can get all local contacts to show on my phone
                 sQLiteConnection.Insert(localContact);
             }
             sQLiteConnection.Close();
             /*Place Breakpoint here to see all your local contacts. Will be used later to check
             localcontacts with database to see if people in your contacts use the app.*/
-            var test = LocalContacts;
         }
     }
+    public class PhoneObject
+    {
+        public string Phone { get; set; }
+    }
+    public class EmailObject
+    {
+        public string Email { get; set; }
+    }
+
 }

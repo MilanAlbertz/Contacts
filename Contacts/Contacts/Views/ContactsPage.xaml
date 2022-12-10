@@ -17,7 +17,7 @@
                 CornerRadius="50"
                 Clicked="ContactsButton_ClickedAsync"/>
             <StackLayout>
-                <ListView x:Name="QuestionListView" ItemSelected="QuestionListView_ItemSelected">
+                <ListView x:Name="ContactListView" ItemSelected="QuestionListView_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding Name}" TextColor="Black">

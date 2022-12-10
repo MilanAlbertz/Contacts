@@ -9,7 +9,6 @@ using Contacts.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
-
 namespace Contacts.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -26,8 +25,10 @@ namespace Contacts.Views
             sQLiteConnection.CreateTable<Contact>();
             var contacts = sQLiteConnection.Table<Contact>().ToList();
 
-            QuestionListView.ItemsSource = contacts;
+             ContactListView.ItemsSource = contacts;
         }
+
+
         //todo: navigeren naar individuele items uit de lijst door:
         //Navigation.PushAsync(new ContactInfoPage(contact));
         public async void ContactsButton_ClickedAsync(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace Contacts.Views
         }
         private void QuestionListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedContact = QuestionListView.SelectedItem as Contact;
+            var selectedContact = ContactListView.SelectedItem as Contact;
             if (selectedContact != null)
             {
                 Navigation.PushAsync(new ContactInfoPage(selectedContact));

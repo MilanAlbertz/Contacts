@@ -7,18 +7,35 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="IdLabel" IsVisible="False"></Label>
-            <Entry x:Name="NameEntry" IsReadOnly="True" TextColor="Black" HorizontalOptions="Center" FontSize="30" />
-            <Frame  HeightRequest="100" Padding="0" HorizontalOptions="Center" HasShadow="True" BackgroundColor="Accent" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
-                <Image WidthRequest="100" Source="TestContact.jpeg" HorizontalOptions="Center"/>
+            <Label x:Name="IdLabel" IsVisible="False"/>
+            <Label x:Name="NameLabel" TextColor="Black" HorizontalOptions="Center" FontSize="30" />
+            <Frame HeightRequest="170" Padding="0" HorizontalOptions="Center" HasShadow="True" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
+                <Image WidthRequest="400" Source="TestContact.jpeg" HorizontalOptions="Center"/>
             </Frame>
 
-            <StackLayout Padding="20,0,0,0">
-                <Label TextColor="Black">Achternaam:</Label>
-                <Entry x:Name="SurnameEntry" IsReadOnly="True" TextColor="Black" />
-                <Label TextColor="Black">Email:</Label>
-                <Entry x:Name="EmailEntry" IsReadOnly="True" TextColor="Black" />
-                <Entry TextColor="Black" x:Name="PhoneNumbersEntry" IsReadOnly="True" />
+            <StackLayout Margin="20,0,0,0">
+                <Label TextColor="Black" FontSize="15" TextDecorations="Underline">Achternaam:</Label>
+                <Label x:Name="SurnameLabel" TextColor="Black" />
+                <Label x:Name="EmailLabel" TextColor="Black" FontSize="15" TextDecorations="Underline">Email adress(en):</Label>
+                <ListView x:Name="EmailListView" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Email}" TextColor="Black">
+
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label x:Name="PhoneNumberLabel" TextColor="Black" FontSize="15" TextDecorations="Underline">Telefoonnummer(s):</Label>
+                <ListView x:Name="PhoneNumberListView" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Phone}" TextColor="Black">
+
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
