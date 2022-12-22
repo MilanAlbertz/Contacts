@@ -6,8 +6,12 @@ namespace Contacts.Views
 {
     public partial class HomePage : TabbedPage
     {
-        public HomePage()
+        public HomePage(Models.Contact contact)
         {
+            if(contact.IsAdmin == true)
+            {
+                
+            }
             InitializeComponent();
         }
     }

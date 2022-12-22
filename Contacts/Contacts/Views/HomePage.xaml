@@ -8,4 +8,5 @@
     <local:ContactsPage Title="Contacts"/>
     <local:MapPage Title="Map"/>
     <local:ProfilePage Title="Profile"/>
+    <local:SkillPage Title="Skill"/>
 </TabbedPage>

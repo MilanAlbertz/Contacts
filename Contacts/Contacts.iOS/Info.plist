@@ -32,5 +32,9 @@
 	<string>Contacts</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Saying yes to this means we get access to all your photos including the once with your kids.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Saying yes to this means we get access to all your photos including the once with your kids.</string>
 </dict>
 </plist>

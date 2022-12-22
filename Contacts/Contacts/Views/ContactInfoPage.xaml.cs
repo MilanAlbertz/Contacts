@@ -23,8 +23,8 @@ namespace Contacts.Views
         {
             InitializeComponent();
             SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
-            sQLiteConnection.CreateTable<Contacts.Models.Contact>();
-            var contacts = sQLiteConnection.Table<Contacts.Models.Contact>().ToList();
+            sQLiteConnection.CreateTable<Contact>();
+            var contacts = sQLiteConnection.Table<Contact>().ToList();
             var phonesO = new List<PhoneObject>();
             foreach (var phone in JsonConvert.DeserializeObject<List<string>>(selectedContact.PhoneNumbersBlobbed))
             {

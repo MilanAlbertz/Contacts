@@ -6,9 +6,12 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry Text="Test Contact" IsReadOnly="True" TextColor="Black" HorizontalOptions="Center" FontSize="30" />
-            <Frame  HeightRequest="100" Padding="0" HorizontalOptions="Center" HasShadow="True" BackgroundColor="Accent" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
-                <Image WidthRequest="100" Source="TestContact.jpeg" HorizontalOptions="Center"/>
+            <Frame  HeightRequest="100" Padding="0" HorizontalOptions="Center" HasShadow="True" BackgroundColor="black" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
+                <Image x:Name="ProfilePictureImage" WidthRequest="100" HorizontalOptions="Center"/>
             </Frame>
+            <Button Text="Change Profile Picture" TextColor="black" Clicked="EditProfilePictureButtonClicked">
+                
+            </Button>
 
             <StackLayout Padding="20,0,0,0">
                 <Label TextColor="Black">Achternaam:</Label>

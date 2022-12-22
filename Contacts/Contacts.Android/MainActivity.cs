@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using System.IO;
+using Android.Content;
 
 namespace Contacts.Droid
 {
@@ -15,6 +16,8 @@ namespace Contacts.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            NativeMedia.Platform.Init(this, savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
@@ -22,6 +25,15 @@ namespace Contacts.Droid
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = Path.Combine(folderPath, dbName);
             LoadApplication(new App(fullPath));
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            if (NativeMedia.Platform.CheckCanProcessResult(requestCode, resultCode, data))
+            {
+                NativeMedia.Platform.OnActivityResult(requestCode, resultCode, data);
+            }
+            base.OnActivityResult(requestCode, resultCode, data);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

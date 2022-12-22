@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using SQLiteNetExtensions;
 using SQLiteNetExtensions.Attributes;
+using Xamarin.Forms;
 
 namespace Contacts.Models
 {
@@ -13,6 +14,8 @@ namespace Contacts.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        public bool IsUser { get; set; }
+        public bool? IsAdmin { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Image { get; set; }

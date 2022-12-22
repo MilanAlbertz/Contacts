@@ -12,7 +12,6 @@
             <Frame HeightRequest="170" Padding="0" HorizontalOptions="Center" HasShadow="True" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
                 <Image WidthRequest="400" Source="TestContact.jpeg" HorizontalOptions="Center"/>
             </Frame>
-
             <StackLayout Margin="20,0,0,0">
                 <Label TextColor="Black" FontSize="15" TextDecorations="Underline">Achternaam:</Label>
                 <Label x:Name="SurnameLabel" TextColor="Black" />

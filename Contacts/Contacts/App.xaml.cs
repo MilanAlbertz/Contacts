@@ -15,6 +15,7 @@ namespace Contacts
         public App()
         {
             InitializeComponent();
+
             MainPage = new NavigationPage(new LoginPage());
         }
         public App(string databaseLocation) : this()
