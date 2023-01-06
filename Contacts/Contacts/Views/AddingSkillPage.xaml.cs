@@ -7,9 +7,9 @@ using System;
 
 namespace Contacts.Views
 {
-    public partial class SkillPage : ContentPage
+    public partial class AddingSkillPage : ContentPage
     {
-        public SkillPage()
+        public AddingSkillPage()
         {
             InitializeComponent();
         }
@@ -18,10 +18,14 @@ namespace Contacts.Views
             base.OnAppearing();
             SkillListView.ItemsSource = await App.MyDatabase.GetAllSkills();
         }
-
-        private void NewSkillButton_Clicked(object sender, EventArgs e)
+        private void SkillListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushAsync(new MakingSkillPage());
+            var selectedSkill = SkillListView.SelectedItem as Skill;
+            if (selectedSkill != null)
+            {
+                Navigation.PushAsync(new SkillInfoPage(selectedSkill));
+            }
         }
+
     }
 }

@@ -11,6 +11,19 @@ namespace Contacts
 {
     public partial class App : Application
     {
+        private static DataAccessLayer db;
+        public static DataAccessLayer MyDatabase
+        {
+            get
+            {
+                if (db == null)
+                {
+                    db = new DataAccessLayer(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        "contacts_db.sqlite"));
+                }
+                return db;
+            }
+        }
         public static string DatabaseLocation  { get; private set; }
         public App()
         {

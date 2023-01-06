@@ -1,12 +1,12 @@
 ﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:Contacts.Views"
-            x:Class="Contacts.Views.SkillPage"
+            x:Class="Contacts.Views.UserPage"
             BackgroundColor="White">
 
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="SkillListView">
+            <ListView>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Name}" TextColor="Black">
@@ -15,16 +15,13 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button
-                Margin="20,10,20,0"
-                VerticalOptions="Center"
-                TextColor="White"
-                BackgroundColor="#5E17EB"
-                CornerRadius="50"
-                Text="New Skill"
-                Clicked="NewSkillButton_Clicked"/>
-
+            <StackLayout>
+                <Label x:Name="test">
+                
+                </Label>
+            </StackLayout>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
 

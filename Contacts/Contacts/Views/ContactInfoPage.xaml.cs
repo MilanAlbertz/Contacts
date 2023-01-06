@@ -2,39 +2,33 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 using Contacts.Models;
-using Contacts.ViewModels;
 using Newtonsoft.Json;
-using SQLite;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Contact = Contacts.Models.Contact;
 
 namespace Contacts.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactInfoPage : ContentPage
     {
-        public ContactInfoPage(Contacts.Models.Contact selectedContact)
+        public ContactInfoPage(Contact selectedContact)
         {
             InitializeComponent();
-            SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
-            sQLiteConnection.CreateTable<Contact>();
-            var contacts = sQLiteConnection.Table<Contact>().ToList();
             var phonesO = new List<PhoneObject>();
             foreach (var phone in JsonConvert.DeserializeObject<List<string>>(selectedContact.PhoneNumbersBlobbed))
             {
                 phonesO.Add(new PhoneObject { Phone = phone});
             }
-
             var emailO = new List<EmailObject>();
             foreach (var email in JsonConvert.DeserializeObject<List<string>>(selectedContact.EmailAdressesBlobbed))
             {
                 emailO.Add(new EmailObject { Email = email });
+            }
+            var skillO = new List<SkillObject>();
+            foreach (var skill in JsonConvert.DeserializeObject<List<Skill>>(selectedContact.LearnedSkillsBlobbed))
+            {
+                skillO.Add(new SkillObject { Skill = skill });
             }
             IdLabel.Text = selectedContact.Id.ToString();
             NameLabel.Text = selectedContact.Name;
@@ -48,7 +42,6 @@ namespace Contacts.Views
             {
                 EmailListView.ItemsSource = emailO;
             }
-
             if (phonesO.Count <= 0)
             {
                 PhoneNumberLabel.IsVisible= false;
@@ -57,6 +50,15 @@ namespace Contacts.Views
             else
             {
                 PhoneNumberListView.ItemsSource = phonesO;
+            }
+            if (skillO.Count <= 0)
+            {
+                SkillLabel.IsVisible = false;
+                SkillsListView.IsVisible = false;
+            }
+            else
+            {
+                SkillsListView.ItemsSource = skillO;
             }
         }
 
@@ -67,6 +69,21 @@ namespace Contacts.Views
 
         private void EmailListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+
+        }
+
+        private async void InsultButton_Clicked(object sender, EventArgs e)
+        {
+            InsultController insultController = new InsultController();
+            foreach(var contact in await App.MyDatabase.GetAllContacts())
+            {
+                if(contact.Id.ToString() == IdLabel.Text)
+                {
+                    var number = JsonConvert.DeserializeObject<List<string>>(contact.PhoneNumbersBlobbed).FirstOrDefault();
+                    var name = contact.Name;
+                    insultController.SendInsult(number, name);
+                }
+            }
 
         }
     }

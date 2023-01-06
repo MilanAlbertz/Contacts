@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Contacts.Models;
 
 namespace Contacts.Views
 {
@@ -19,11 +20,9 @@ namespace Contacts.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
-            sQLiteConnection.CreateTable<Models.Contact>();
-            var contacts = sQLiteConnection.Table<Models.Contact>().ToList();
+            var contacts = await App.MyDatabase.GetAllContacts();
             bool isThereAnAdmin = false;
 
             foreach (var contact in contacts)
@@ -38,8 +37,8 @@ namespace Contacts.Views
                 Models.Contact admin = new Models.Contact();
                 admin.Username = "1";
                 admin.Password = "1";
-                sQLiteConnection.Insert(admin);
-                sQLiteConnection.Close();
+                admin.IsAdmin= true;
+                await App.MyDatabase.RegisterUser(admin);
             }
             if (String.IsNullOrEmpty(UsernameEntry.Text))
             {
@@ -49,14 +48,33 @@ namespace Contacts.Views
             {
                 PasswordEntry.Placeholder = "This can't be empty!";
             }
+            bool checker = false;
+            Models.Contact activeUser = new Models.Contact();
             foreach (var contact in contacts)
             {
-                if(contact.Username == UsernameEntry.Text && contact.Password == PasswordEntry.Text)
+                if (contact.Username == UsernameEntry.Text && contact.Password == PasswordEntry.Text)
                 {
-                    contact.IsAdmin = false;
-                    Navigation.PushAsync(new HomePage(contact));
+                    checker = true;
+                    activeUser = contact;
                 }
             }
+            if (checker == true)
+            {
+                if(activeUser.IsAdmin == true)
+                {
+                    await Navigation.PushAsync(new AdminPage());
+                }
+                else
+                {
+                    await Navigation.PushAsync(new HomePage());
+                }
+                activeUser = null;
+                checker = false;
+            }
+        }
+        private void RegisterButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
         }
     }
 }

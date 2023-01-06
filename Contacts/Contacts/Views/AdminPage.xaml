@@ -1,11 +1,10 @@
 ﻿<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:Contacts.Views"
-            x:Class="Contacts.Views.HomePage"
+            x:Class="Contacts.Views.AdminPage"
             BarBackgroundColor="#5E17EB">
 
 
-    <local:ContactsPage Title="Contacts"/>
-    <local:MapPage Title="Map"/>
-    <local:ProfilePage Title="Profile"/>
+    <local:SkillPage Title="Skill"/>
+    <local:UserPage Title="User"/>
 </TabbedPage>

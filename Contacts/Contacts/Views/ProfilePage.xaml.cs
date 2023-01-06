@@ -25,9 +25,15 @@ namespace Contacts.Views
             }
             else
             {
-                //todo: Make the pfp saveable :)
                 ImageSourceConverter imageSourceConverter = new ImageSourceConverter();
-                ProfilePictureImage.Source = (ImageSource)imageSourceConverter.ConvertFromInvariantString(user.Image);
+                if (user.Image == null)
+                {
+                    ProfilePictureImage.Source = "TestContact.jpeg";
+                }
+                else
+                {
+                    ProfilePictureImage.Source = (ImageSource)imageSourceConverter.ConvertFromInvariantString(user.Image);
+                }
             }
             sQLiteConnection.Close();
         }
@@ -49,6 +55,11 @@ namespace Contacts.Views
                 sQLiteConnection.Update(user);
                 sQLiteConnection.Close();
             }
+        }
+
+        private void NewSkillButton_Clicked(object sender, EventArgs args)
+        {
+            Navigation.PushAsync(new AddingSkillPage());
         }
     }
 }

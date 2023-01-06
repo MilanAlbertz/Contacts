@@ -9,6 +9,8 @@ using Contacts.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
+using Contacts.Services;
+
 namespace Contacts.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,14 +20,10 @@ namespace Contacts.Views
         {
             InitializeComponent();
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
-            sQLiteConnection.CreateTable<Contact>();
-            var contacts = sQLiteConnection.Table<Contact>().ToList();
-
-             ContactListView.ItemsSource = contacts;
+            ContactListView.ItemsSource = await App.MyDatabase.GetAllContacts();
         }
 
 
@@ -36,7 +34,7 @@ namespace Contacts.Views
             ContactController contactController= new ContactController();
             await contactController.GetAllContactsAsync();
         }
-        private void QuestionListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void ContactListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedContact = ContactListView.SelectedItem as Contact;
             if (selectedContact != null)

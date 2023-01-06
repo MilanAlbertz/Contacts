@@ -20,6 +20,16 @@
                 <Entry Text="test.test@gmail.com" IsReadOnly="True" TextColor="Black" />
                 <Entry TextColor="Black" x:Name="PhoneNumbersEntry" IsReadOnly="True" />
             </StackLayout>
+            <StackLayout>
+                <Button 
+                Margin="20,10,20,0"
+                Text="New Skill"
+                VerticalOptions="Center"
+                TextColor="White"
+                CornerRadius="50"
+                BackgroundColor="#5E17EB"
+                Clicked="NewSkillButton_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -15,8 +15,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SkillInfoPage.xaml.cs">
+      <DependentUpon>SkillInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ContactInfoPage.xaml.cs">
       <DependentUpon>ContactInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\MakingSkillPage.xaml.cs">
+      <DependentUpon>MakingSkillPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RegisterPage.xaml.cs">
+      <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AddingSkillPage.xaml.cs">
+      <DependentUpon>AddingSkillPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>

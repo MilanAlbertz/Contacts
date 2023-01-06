@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using SQLite;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace Contacts.Models
 {
@@ -24,26 +25,26 @@ namespace Contacts.Models
             if (contacts == null)
                 return;
             //todo: ProgressBar maken
-            var check = LocalContacts;
-            SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
-            sQLiteConnection.CreateTable<Contact>();
+            Skill skill = new Skill();
+            skill.Name = "Installing Apps";
+            skill.Description = "You we're able to install this app. Good job!";
             foreach (var contact in contacts)
             {
                 var localContact = new Contact();
                 localContact.Name = contact.GivenName;
                 localContact.Surname = contact.FamilyName;
+                localContact.Username = null;
                 foreach (var phoneNumber in contact.Phones)
                 {
                     localContact.PhoneNumbers.Add(phoneNumber.ToString());
                 }
                 localContact.PhoneNumbersBlobbed = JsonConvert.SerializeObject(localContact.PhoneNumbers);
                 localContact.EmailAdressesBlobbed = JsonConvert.SerializeObject(localContact.EmailAdresses);
+                localContact.LearnedSkillsBlobbed = JsonConvert.SerializeObject(skill);
+
                 LocalContacts.Add(localContact);
-                sQLiteConnection.Insert(localContact);
+                await App.MyDatabase.RegisterUser(localContact);
             }
-            sQLiteConnection.Close();
-            /*Place Breakpoint here to see all your local contacts. Will be used later to check
-            localcontacts with database to see if people in your contacts use the app.*/
         }
     }
     public class PhoneObject
@@ -53,6 +54,10 @@ namespace Contacts.Models
     public class EmailObject
     {
         public string Email { get; set; }
+    }
+    public class SkillObject
+    {
+        public Skill Skill { get; set; }
     }
 
 }
