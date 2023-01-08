@@ -22,7 +22,7 @@ namespace Contacts.Models
         public string Username { get; set; }
         public string Password { get; set; }
         [TextBlob("LearnedSkillsBlobbed")]
-        public List<Skill> LearnedSkills { get; set; }
+        public List<int> LearnedSkillsIDs { get; set; }
         public string LearnedSkillsBlobbed { get; set; }
         [TextBlob("EmailAdressesBlobbed")]
         public List<string> EmailAdresses { get; set; }
@@ -35,7 +35,7 @@ namespace Contacts.Models
         {
             PhoneNumbers = new List<string>();
             EmailAdresses = new List<string>();
-            LearnedSkills = new List<Skill>();
+            LearnedSkillsIDs = new List<int>();
         }
     }
 }

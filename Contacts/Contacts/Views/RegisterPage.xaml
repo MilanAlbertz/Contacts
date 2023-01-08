@@ -4,20 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="Register"
              x:Class="Contacts.Views.RegisterPage"
-             NavigationPage.HasNavigationBar="False"
              x:Name="this"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Label>
-                Padding="0,0,0,0"
-                FontSize="15" 
-                HorizontalOptions="Center" 
-                TextColor="White">
-                Register
-            </Label>
-            <Frame BorderColor="#5E17EB" Padding="1" Margin="20,50,20,0">
+        <StackLayout Padding="0,10,0,0" Margin="20,50,20,0">
+            <Label TextColor="Black" HorizontalOptions="Center" FontSize="30" Text="Register" />
+            <Label TextColor="Black" Text="Please fill in a username and password you would like to use." />
+
+            <Frame BorderColor="#5E17EB" Padding="1">
                 <Entry 
                 x:Name="UsernameEntry"
                 Placeholder="Username" 
@@ -26,7 +22,7 @@
                 </Entry>
             </Frame>
             
-            <Frame BorderColor="#5E17EB" Padding="1" Margin="20,0,20,0">
+            <Frame BorderColor="#5E17EB" Padding="1">
                 <Entry 
                 x:Name="PasswordEntry"
                 Placeholder="Password" 

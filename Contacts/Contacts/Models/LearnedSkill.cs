@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Contacts.Models
 {
-    public class Skill
+    public class LearnedSkill
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Grasp { get; set; }
     }
 }

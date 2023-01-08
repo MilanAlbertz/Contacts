@@ -2,29 +2,67 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.SkillInfoPage"
-             Title="Contacts"
+             Title="Adding skill to contact"
              BackgroundColor="White">
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="0,20,0,0">
             <Label x:Name="IdLabel" IsVisible="False"/>
-            <StackLayout Margin="20,0,0,0">
-                <Label TextColor="Black" FontSize="15" TextDecorations="Underline">Name:</Label>
+            <StackLayout Margin="20,0,20,0">
+                <Label FontSize="Large" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Name:"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <Label x:Name="SkillNameLabel" TextColor="Black" />
-                <Label TextColor="Black" FontSize="15" TextDecorations="Underline">Description:</Label>
+                <Label FontSize="Large" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Description:"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <Label x:Name="SkillDescriptionLabel" TextColor="Black" />
-
-            </StackLayout>
-            <StackLayout>
-                <Picker 
+                <Label FontSize="Large" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Who do you want to add this skill to?"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame BorderColor="#5E17EB" Padding="1">
+                    <Picker 
                     ItemDisplayBinding="{Binding Name}"
                     x:Name="UserPicker"
                     TextColor="Black">
-                </Picker>
-                <Picker 
+                    </Picker>
+                </Frame>
+                <Label FontSize="Large" TextColor="Black">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="How well do they know this skill?"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Frame BorderColor="#5E17EB" Padding="1">
+                    <Picker 
                     x:Name="GraspPicker"
                     TextColor="Black">
-                </Picker>
+                    </Picker>
+                </Frame>
+            </StackLayout>
+            <StackLayout>
+                
                 <Button
                     Margin="20,10,20,0"
                     VerticalOptions="Center"

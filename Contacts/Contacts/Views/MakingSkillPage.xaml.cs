@@ -27,7 +27,7 @@ namespace Contacts.Views
             skill.Name = SkillNameEntry.Text;
             skill.Description = SkillDescriptionEntry.Text;
             App.MyDatabase.MakeSkill(skill);
-            Navigation.PushAsync(new SkillPage());
+            Navigation.PushAsync(new AdminPage());
         }
     }
 }

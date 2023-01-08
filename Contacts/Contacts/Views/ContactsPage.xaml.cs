@@ -23,7 +23,9 @@ namespace Contacts.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ContactListView.ItemsSource = await App.MyDatabase.GetAllContacts();
+            //todo: Sorteren op alphabet
+            List<Contact> contacts = await App.MyDatabase.GetAllContacts();
+            ContactListView.ItemsSource = contacts;
         }
 
 
@@ -31,7 +33,7 @@ namespace Contacts.Views
         //Navigation.PushAsync(new ContactInfoPage(contact));
         public async void ContactsButton_ClickedAsync(object sender, EventArgs e)
         {
-            ContactController contactController= new ContactController();
+            ContactController contactController = new ContactController();
             await contactController.GetAllContactsAsync();
         }
         private void ContactListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

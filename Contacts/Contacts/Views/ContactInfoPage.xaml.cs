@@ -26,9 +26,9 @@ namespace Contacts.Views
                 emailO.Add(new EmailObject { Email = email });
             }
             var skillO = new List<SkillObject>();
-            foreach (var skill in JsonConvert.DeserializeObject<List<Skill>>(selectedContact.LearnedSkillsBlobbed))
+            foreach (var skill in JsonConvert.DeserializeObject<List<LearnedSkill>>(selectedContact.LearnedSkillsBlobbed))
             {
-                skillO.Add(new SkillObject { Skill = skill });
+                skillO.Add(new SkillObject { LearnedSkill = skill, Name = skill.Name });
             }
             IdLabel.Text = selectedContact.Id.ToString();
             NameLabel.Text = selectedContact.Name;
@@ -59,6 +59,11 @@ namespace Contacts.Views
             else
             {
                 SkillsListView.ItemsSource = skillO;
+            }
+            if(string.IsNullOrEmpty(selectedContact.Surname))
+            {
+                SurnameLabel.IsVisible = false;
+                SurnameTextLabel.IsVisible = false;
             }
         }
 

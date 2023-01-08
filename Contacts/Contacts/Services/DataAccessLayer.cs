@@ -16,6 +16,7 @@ namespace Contacts.Services
             db = new SQLiteAsyncConnection(dbPath);
             db.CreateTableAsync<Contact>();
             db.CreateTableAsync<Skill>();
+            db.CreateTableAsync<LearnedSkill>();
         }
 
         //For Contact 
@@ -25,7 +26,17 @@ namespace Contacts.Services
         }
         public Task<List<Contact>> GetAllContacts() 
         {
-            return db.Table<Contact>().ToListAsync();
+            db.CreateTableAsync<Contact>();
+            return db.Table<Contact>().OrderBy(d => d.Name).ToListAsync();
+        }
+        public Task<List<Contact>> GetAllUsers()
+        {
+            db.CreateTableAsync<Contact>();
+            return db.Table<Contact>().Where(d => string.IsNullOrEmpty(d.Name)).OrderBy(d => d.Name).ToListAsync();
+        }
+        public Task<List<Contact>> GetAllLocalContacts()
+        {
+            return db.Table<Contact>().Where(d => string.IsNullOrEmpty(d.Username)).OrderBy(d => d.Name).ToListAsync();
         }
         public Task<List<Contact>> GetAllContactNames()
         {
@@ -49,11 +60,29 @@ namespace Contacts.Services
         {
             return db.Table<Skill>().ToListAsync();
         }
-        public Task<int> UpdateContact(Skill skill)
+        public Task<int> UpdateSkill(Skill skill)
         {
             return db.UpdateAsync(skill);
         }
-        public Task<int> DeleteContact(Skill skill)
+        public Task<int> DeleteSkill(Skill skill)
+        {
+            return db.DeleteAsync(skill);
+        }
+
+        //For learned skill
+        public Task<int> MakeLearnedSkill(LearnedSkill skill)
+        {
+            return db.InsertAsync(skill);
+        }
+        public Task<List<LearnedSkill>> GetAllLearnedSkills()
+        {
+            return db.Table<LearnedSkill>().ToListAsync();
+        }
+        public Task<int> UpdateLearnedSkill(LearnedSkill skill)
+        {
+            return db.UpdateAsync(skill);
+        }
+        public Task<int> DeleteLearnedSkill(LearnedSkill skill)
         {
             return db.DeleteAsync(skill);
         }

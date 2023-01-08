@@ -48,28 +48,36 @@ namespace Contacts.Views
             {
                 PasswordEntry.Placeholder = "This can't be empty!";
             }
-            bool checker = false;
-            Models.Contact activeUser = new Models.Contact();
-            foreach (var contact in contacts)
+            else
             {
-                if (contact.Username == UsernameEntry.Text && contact.Password == PasswordEntry.Text)
+                bool checker = false;
+                Contact activeUser = new Models.Contact();
+                foreach (var contact in contacts)
                 {
-                    checker = true;
-                    activeUser = contact;
+                    if (contact.Username == UsernameEntry.Text && contact.Password == PasswordEntry.Text)
+                    {
+                        checker = true;
+                        activeUser = contact;
+                    }
                 }
-            }
-            if (checker == true)
-            {
-                if(activeUser.IsAdmin == true)
+                if (checker == true)
                 {
-                    await Navigation.PushAsync(new AdminPage());
+                    if (activeUser.IsAdmin == true)
+                    {
+                        await Navigation.PushAsync(new AdminPage());
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new HomePage());
+                    }
+                    activeUser = null;
                 }
                 else
                 {
-                    await Navigation.PushAsync(new HomePage());
+                    DisplayAlert("Error!", "Username or password incorrect!", "Ok");
                 }
-                activeUser = null;
                 checker = false;
+
             }
         }
         private void RegisterButton_Clicked(object sender, EventArgs e)

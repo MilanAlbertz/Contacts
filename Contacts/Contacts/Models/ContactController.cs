@@ -24,10 +24,19 @@ namespace Contacts.Models
             }
             if (contacts == null)
                 return;
-            //todo: ProgressBar maken
-            Skill skill = new Skill();
+            LearnedSkill skill = new LearnedSkill();
             skill.Name = "Installing Apps";
             skill.Description = "You we're able to install this app. Good job!";
+            skill.Grasp = 10;
+
+            LearnedSkill skill2 = new LearnedSkill();
+            skill2.Name = "Being Awesome";
+            skill2.Description = "You're looking good!";
+            skill2.Grasp = 10;
+
+            List<LearnedSkill> basicSkills = new List<LearnedSkill>();
+            basicSkills.Add(skill);
+            basicSkills.Add(skill2);
             foreach (var contact in contacts)
             {
                 var localContact = new Contact();
@@ -40,7 +49,7 @@ namespace Contacts.Models
                 }
                 localContact.PhoneNumbersBlobbed = JsonConvert.SerializeObject(localContact.PhoneNumbers);
                 localContact.EmailAdressesBlobbed = JsonConvert.SerializeObject(localContact.EmailAdresses);
-                localContact.LearnedSkillsBlobbed = JsonConvert.SerializeObject(skill);
+                localContact.LearnedSkillsBlobbed = JsonConvert.SerializeObject(basicSkills);
 
                 LocalContacts.Add(localContact);
                 await App.MyDatabase.RegisterUser(localContact);
@@ -57,7 +66,8 @@ namespace Contacts.Models
     }
     public class SkillObject
     {
-        public Skill Skill { get; set; }
+        public string Name { get; set; }
+        public LearnedSkill LearnedSkill { get; set; }
     }
 
 }

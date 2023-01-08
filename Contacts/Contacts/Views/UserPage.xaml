@@ -6,20 +6,15 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <ListView>
+            <ListView x:Name="UserListView" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}" TextColor="Black">
+                        <TextCell Text="{Binding Username}" TextColor="Black">
 
                         </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout>
-                <Label x:Name="test">
-                
-                </Label>
-            </StackLayout>
         </StackLayout>
         
     </ContentPage.Content>

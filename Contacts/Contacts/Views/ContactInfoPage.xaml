@@ -2,20 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.ContactInfoPage"
-             Title="Contacts"
              BackgroundColor="White">
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="0,10,0,0">
             <Label x:Name="IdLabel" IsVisible="False"/>
             <Label x:Name="NameLabel" TextColor="Black" HorizontalOptions="Center" FontSize="30" />
-            <Frame HeightRequest="170" Padding="0" HorizontalOptions="Center" HasShadow="True" IsClippedToBounds="True" WidthRequest="100" CornerRadius="50">
-                <Image WidthRequest="400" Source="TestContact.jpeg" HorizontalOptions="Center"/>
-            </Frame>
             <StackLayout Margin="20,0,0,0">
-                <Label TextColor="Black" FontSize="15" TextDecorations="Underline">Achternaam:</Label>
+                <Label FontSize="Large" TextColor="Black" x:Name="SurnameTextLabel">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Surname:"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <Label x:Name="SurnameLabel" TextColor="Black" />
-                <Label x:Name="EmailLabel" TextColor="Black" FontSize="15" TextDecorations="Underline">Email adress(en):</Label>
+                <Label FontSize="Large" TextColor="Black" x:Name="EmailLabel">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Email Adresses:"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <ListView x:Name="EmailListView" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -25,7 +37,15 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Label x:Name="PhoneNumberLabel" TextColor="Black" FontSize="15" TextDecorations="Underline">Telefoonnummer(s):</Label>
+                <Label FontSize="Large" TextColor="Black" x:Name="PhoneNumberLabel">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Phonenumbers:"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <ListView x:Name="PhoneNumberListView" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -35,11 +55,19 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Label x:Name="SkillLabel" TextColor="Black" FontSize="15" TextDecorations="Underline">Skill(s):</Label>
+                <Label FontSize="Large" TextColor="Black" x:Name="SkillLabel">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span FontAttributes="Bold" Text="Skills:"/>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
                 <ListView x:Name="SkillsListView" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Phone}" TextColor="Black">
+                            <TextCell Text="{Binding Name}" TextColor="Black">
 
                             </TextCell>
                         </DataTemplate>
@@ -48,7 +76,7 @@
             </StackLayout>
             <StackLayout>
                 <Button
-                    Margin="20,10,20,0"
+                    Margin="20,10,20,20"
                     VerticalOptions="Center"
                     TextColor="White"
                     BackgroundColor="#5E17EB"
